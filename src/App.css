@@ -1,62 +1,7 @@
-#quote-box{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 30px;
-    color: rgb(238, 184, 84);
-    box-shadow: 10px 10px 20px rgba(10, 10, 10, 0.411);
-    background: transparent;
-}
-#text{
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-}
-#text::before{
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   content: '“';
-   font-size: 250px;
-   position: relative;
-   top: 125px;
-   color: #0e0e0e62;
-   line-height: 0;
-}
-#author{
-    font-size:20px;
-    text-align: right;
-    font-weight: 500;
-}
-#new-quote{
-    border: none;
-    background-color: rgb(248, 211, 143);
-    border-radius: 10px;
-    padding: 10px;
-    margin-left: 50px;
-    transition: 0.5s ease;
-    outline: none !important;
-}
-#new-quote:hover{
-    background-color: wheat;
-}
-#new-quote:active{
-    background-color: rgb(253, 199, 98);
-}
-.twitter, #tweet-quote{
-    background-color: transparent;
-    color:  rgb(248, 211, 143);
-    border: none;
-    font-size: 20px;
-    transition: 0.2s ease;
-}
-.twitter:hover{
-    transform: translateY(-3px);
-}
-.bg ,body{
-    width: 100%;
-    height: 110vh;
-    background-size: 400% 400%;
+body{
+    background: #ff6e6e;
+    color: white;
+    background-size: 300% 300%;
     background-image: linear-gradient(45deg, #a3ff4e, #4f5bff,  rgb(113, 0, 136), #4f5bff,#a3ff4e);
     animation: animate 10s infinite normal;
 }
@@ -71,49 +16,116 @@
         background-position: 0 50%;
     }
 }
-#loading{
-    font-size: 50px;
+.inputWrapper{
     text-align: center;
-    color: rgb(245, 207, 137);
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+    color: #f3d9d9;
+}
+#editor{
+    box-shadow: 10px 10px 20px rgba(10, 10, 10, 0.411);
+    border-radius: 5px;
+    width: 100%;
+    min-height: 70vh;
+    padding: 5px;
+    background-color: rgba(134, 134, 134, 0.418);
+    outline: none;
+    border: 2px solid rgb(30, 255, 0);
+    color: white;
+}
+#editor::placeholder{
+    color: rgb(243, 243, 243);
+}
+.prevWrapper{
+    width: 40%;
+    float: right;
+    margin-right: 5%;
+}
+.prevWrapper .see{
+    text-align: center;
+    color: #f3d9d9;
+}
+#preview{
+    border-radius: 10px;
+    padding: 10px;
+    width: 90%;
+    min-height: 68vh;
+    background-color: #6f01ff52;
+    box-shadow: 10px 10px 20px rgba(10, 10, 10, 0.411);
+    overflow: hidden;
+    word-wrap: break-word;
+    margin-right: 5%;
+}
+.arrow{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
 }
-#loading::after{
-    content: '';
-    animation: load 3s infinite;
-    transition: 0.2s ease;
+.Instruction{
+    width: 50%;
+    position: relative;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    padding-bottom: 50px;
+    z-index: -1;
 }
-@keyframes load{
-    0%{
-        content: '';
-    }
-    25%{
-        content: '.';
-    }
-    50%{
-        content: '..';
-    }
-    75%{
-        content: '...';
-    }
-    100%{
-        content: '';
-    }
+.Instruction h2{
+    text-align: center;
+    color: #f3d9d9;
 }
-@media only screen and (max-width: 650px) {
-    #quote-box{
-        width: 80%;
-        margin-top: 20%;
-    }
-    .bg{
-        height: 120vh;
-    }
-    #text{
+.content-instuction{
+    background-color: #00000067;
+    box-shadow: 10px 10px 20px rgba(10, 10, 10, 0.411);
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+footer{
+    margin-top: 150px;
+    padding: 50px 0;
+    text-align: center;
+    background-color: black;
+}
+footer a {
+    color: rgb(0, 140, 255);
+    text-decoration: none;
+}
+@media (max-width: 400px){
+    .prevWrapper .see, .inputWrapper h1{
         font-size: 20px;
     }
-    #text::before{
-       font-size: 90px;
+    #preview{
+        width: 80%;
     }
-  }
+    .arrow{
+        font-size: 20px;
+    }
+    .Instruction{
+        width: 80%;
+    }
+    .inputWrapper, .prevWrapper{
+        float: none;
+        width: 80%;
+    }
+    .prevWrapper{
+        margin-right: 0;
+        position: relative;
+        left: 40%;
+        transform: translateX(-65%);
+    }
+    .inputWrapper{
+        margin-left: 10%;
+    }
+    #preview, #editor{
+        min-height: 40vh;
+    }
+    #preview{
+        width: 100%;
+    }
+    .arrow{
+        display: none;
+    }
+}
